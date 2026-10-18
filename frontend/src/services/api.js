@@ -3,9 +3,26 @@
  * Includes Argon2/JWT Authentication, RBAC, and Security Token Handling.
  */
 
-const API_BASE = import.meta.env.VITE_API_URL
-  ? `${import.meta.env.VITE_API_URL.replace(/\/$/, "")}/api`
-  : "/api";
+const getApiBase = () => {
+  // If Vite environment variable is set (e.g., from .env.production or Vercel dashboard)
+  if (import.meta.env.VITE_API_URL) {
+    const raw = import.meta.env.VITE_API_URL.replace(/\/$/, "");
+    return raw.endsWith("/api") ? raw : `${raw}/api`;
+  }
+  // Browser runtime detection
+  if (typeof window !== "undefined") {
+    const hostname = window.location.hostname;
+    // Local development proxy
+    if (hostname === "localhost" || hostname === "127.0.0.1") {
+      return "/api";
+    }
+    // Production deployments (Vercel, custom domain, etc.)
+    return "https://graphguard-ai.onrender.com/api";
+  }
+  return "https://graphguard-ai.onrender.com/api";
+};
+
+const API_BASE = getApiBase();
 const TOKEN_KEY = "graphguard_auth_token";
 
 export function getAuthToken() {
@@ -37,11 +54,9 @@ async function authFetch(url, options = {}) {
     headers["Authorization"] = `Bearer ${token}`;
   }
 
-  // Include credentials for HttpOnly cookie fallback
   const res = await fetch(url, {
     ...options,
-    headers,
-    credentials: "same-origin"
+    headers
   });
 
   if (res.status === 401) {
@@ -60,13 +75,24 @@ export async function loginUser(email, password) {
   const res = await fetch(`${API_BASE}/auth/login`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password }),
-    credentials: "same-origin"
+    body: JSON.stringify({ email, password })
   });
 
   if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    throw new Error(err.detail || "Invalid email or password.");
+    let errorMsg = "Invalid email or password.";
+    try {
+      const err = await res.json();
+      if (err && err.detail) {
+        errorMsg = err.detail;
+      }
+    } catch (_) {
+      if (res.status === 405) {
+        errorMsg = "Backend route not reachable (405 Method Not Allowed). Please check server routing.";
+      } else if (res.status === 502 || res.status === 503) {
+        errorMsg = "Backend service is warming up. Please retry in 10-15 seconds.";
+      }
+    }
+    throw new Error(errorMsg);
   }
 
   const data = await res.json();

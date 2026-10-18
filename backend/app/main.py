@@ -43,10 +43,14 @@ app = FastAPI(
 
 # Parse allowed origins from FRONTEND_URL setting
 allowed_origins = [o.strip() for o in settings.FRONTEND_URL.split(",") if o.strip()]
-if "http://127.0.0.1:5173" not in allowed_origins:
-    allowed_origins.append("http://127.0.0.1:5173")
-if "http://localhost:5173" not in allowed_origins:
-    allowed_origins.append("http://localhost:5173")
+for origin in [
+    "http://127.0.0.1:5173",
+    "http://localhost:5173",
+    "https://graphguard-ai-brown.vercel.app",
+    "https://graphguard-ai.vercel.app"
+]:
+    if origin not in allowed_origins:
+        allowed_origins.append(origin)
 
 # Enable CORS for React Vite frontend (supports localhost, custom FRONTEND_URL, and all Vercel domains)
 app.add_middleware(
