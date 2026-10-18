@@ -8,7 +8,14 @@ if str(root_dir) not in sys.path:
     sys.path.insert(0, str(root_dir))
 
 from app.graph.connection import db_manager
-from data.seed.seed_data import SEED_NODES, SEED_RELATIONSHIPS
+
+try:
+    from app.graph.seed_data import SEED_NODES, SEED_RELATIONSHIPS
+except ImportError:
+    try:
+        from data.seed.seed_data import SEED_NODES, SEED_RELATIONSHIPS
+    except ImportError:
+        from backend.data.seed.seed_data import SEED_NODES, SEED_RELATIONSHIPS
 
 logger = logging.getLogger("graphguard.engine")
 
