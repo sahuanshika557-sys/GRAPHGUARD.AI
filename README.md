@@ -14,7 +14,7 @@
 
 ## 📋 Hackathon Submission Deliverables (Rule 10 Compliance)
 
-| Requirement (Rule 10) | Submission Link / Verification |
+| Requirement  | Submission Link / Verification |
 | :--- | :--- |
 | **Track Entered** | **Track 01: Agents That Act on Connected Data** |
 | **Public Source-Code Repository** | [https://github.com/sahuanshika557-sys/GRAPHGUARD.AI](https://github.com/sahuanshika557-sys/GRAPHGUARD.AI) |
@@ -25,8 +25,8 @@
 | **Cypher Queries & Algorithms** | [Section 5: Cypher Queries & Graph Algorithms](#5-cypher-queries--graph-algorithms-the-product-depends-on) |
 | **Local Setup Instructions** | [Section 11: Complete Local Setup & Docker Guide](#11-complete-local-setup--deployment-guide) |
 | **Demo Video Walkthrough** | **[Watch Demo Video on YouTube / Drive](https://youtu.be/demo-link-placeholder)** *(or see live deployment)* |
-| **AI Disclosure (Rule 11)** | [Section 14: AI Coding Assistant Disclosure](#14-ai-coding-assistant-disclosure-rule-11) |
-| **Data Ethics (Rule 6)** | [Section 13: Synthetic Data Compliance](#13-data-ethics--synthetic-benchmark-disclosure-rule-6) |
+| **AI Disclosure ** | [Section 14: AI Coding Assistant Disclosure](#14-ai-coding-assistant-disclosure-rule-11) |
+| **Data Ethics ** | [Section 13: Synthetic Data Compliance](#13-data-ethics--synthetic-benchmark-disclosure-rule-6) |
 
 ---
 
@@ -264,60 +264,8 @@ Compliance teams can export full investigation dossiers directly from the invest
 
 ---
 
-## 11. Complete Local Setup & Deployment Guide
 
-You can run GraphGuard AI locally via Docker Compose or manual setup.
-
-### Option A: 1-Click Docker Compose (Recommended)
-
-```bash
-# 1. Clone repository
-git clone https://github.com/sahuanshika557-sys/GRAPHGUARD.AI.git
-cd GRAPHGUARD.AI
-
-# 2. Launch complete stack (FalkorDB + Backend + Frontend)
-docker compose up --build
-```
-- Frontend: `http://localhost:5173`
-- Backend API Docs: `http://localhost:8000/docs`
-- FalkorDB: `localhost:6379`
-
----
-
-### Option B: Manual Local Setup
-
-#### 1. Backend Setup (FastAPI + Python 3.11+)
-```bash
-cd backend
-python -m venv venv
-
-# Activate virtual environment
-# Windows:
-.\venv\Scripts\activate
-# Linux/macOS:
-source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Configure environment
-cp ../.env.example .env
-
-# Run FastAPI backend
-python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
-```
-
-#### 2. Frontend Setup (React 19 + Vite)
-```bash
-cd frontend
-npm install
-npm run dev
-```
-Open [http://localhost:5173](http://localhost:5173) in your browser.
-
----
-
-## 12. Automated Integration & Security Test Suite
+## 11. Automated Integration & Security Test Suite
 
 The platform is validated against a comprehensive automated integration and security test suite:
 
@@ -362,7 +310,7 @@ tests/test_security.py::test_17_admin_password_reset PASSED              [100%]
 
 ---
 
-## 13. Data Ethics & Synthetic Benchmark Disclosure (Rule 6)
+## 12. Data Ethics & Synthetic Benchmark Disclosure (Rule 6)
 
 > **Rule 6 Compliance**: *"Your project must use data you are allowed to use: public, synthetic, or your own. Do not load private, login-protected, paywalled, personal, or otherwise restricted information into your graph."*
 
@@ -371,7 +319,7 @@ tests/test_security.py::test_17_admin_password_reset PASSED              [100%]
 
 ---
 
-## 14. AI Coding Assistant Disclosure (Rule 11)
+## 13. AI Coding Assistant Disclosure (Rule 11)
 
 > **Rule 11 Compliance**: *"AI coding assistants are allowed, but their use must be disclosed."*
 
@@ -380,7 +328,7 @@ tests/test_security.py::test_17_admin_password_reset PASSED              [100%]
 
 ---
 
-## 15. Team & Acknowledgements
+## 14. Team & Acknowledgements
 
 - **Participant**: Anshika Sahu ([@sahuanshika557-sys](https://github.com/sahuanshika557-sys))
 - **Track**: Track 01 — *Agents That Act on Connected Data*
