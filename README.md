@@ -4,58 +4,64 @@
 
 **GRAPH Hacks 2026** — *Track 01: Agents That Act on Connected Data*
 
-[![Live App](https://img.shields.io/badge/Live%20Demo-graphguard--ai--brown.vercel.app-00E5FF?style=for-the-badge&logo=vercel&logoColor=black)](https://graphguard-ai-brown.vercel.app/)
-[![Backend Engine](https://img.shields.io/badge/Backend%20API-graphguard--ai.onrender.com-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://graphguard-ai.onrender.com)
-[![FalkorDB Cloud](https://img.shields.io/badge/FalkorDB%20Cloud-Live%20Cluster-FF4438?style=for-the-badge&logo=redis&logoColor=white)](https://falkordb.com)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-graphguard--ai--brown.vercel.app-00E5FF?style=for-the-badge&logo=vercel&logoColor=black)](https://graphguard-ai-brown.vercel.app/)
+[![Backend API](https://img.shields.io/badge/Backend%20API-graphguard--ai.onrender.com-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://graphguard-ai.onrender.com)
+[![FalkorDB Cloud](https://img.shields.io/badge/FalkorDB%20Cloud-Live%20AWS%20Cluster-FF4438?style=for-the-badge&logo=redis&logoColor=white)](https://falkordb.com)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Public%20Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/sahuanshika557-sys/GRAPHGUARD.AI)
 [![Tests](https://img.shields.io/badge/Tests-26%2F26%20Passing-10B981?style=for-the-badge&logo=pytest&logoColor=white)](https://pytest.org)
 
 ---
 
-### 🌐 Live Production Deployment
-- 🚀 **Interactive Investigation Console**: **[https://graphguard-ai-brown.vercel.app/](https://graphguard-ai-brown.vercel.app/)**
-- ⚡ **Backend API Engine**: **[https://graphguard-ai.onrender.com](https://graphguard-ai.onrender.com)**
-- 🧠 **Context & Graph Layer**: **FalkorDB Cloud** (AWS ap-south-1 cluster)
+## 📋 Hackathon Submission Deliverables (Rule 10 Compliance)
+
+| Requirement (Rule 10) | Submission Link / Verification |
+| :--- | :--- |
+| **Track Entered** | **Track 01: Agents That Act on Connected Data** |
+| **Public Source-Code Repository** | [https://github.com/sahuanshika557-sys/GRAPHGUARD.AI](https://github.com/sahuanshika557-sys/GRAPHGUARD.AI) |
+| **Live Interactive Deployment** | [https://graphguard-ai-brown.vercel.app/](https://graphguard-ai-brown.vercel.app/) |
+| **Production Backend Engine** | [https://graphguard-ai.onrender.com](https://graphguard-ai.onrender.com) |
+| **Primary Graph Database** | **FalkorDB Cloud** (Native Redis-Graph Engine, AWS `ap-south-1`) |
+| **Graph Data Model & Topology** | [Section 4: Graph Topology & Data Model](#4-graph-topology--data-model) |
+| **Cypher Queries & Algorithms** | [Section 5: Cypher Queries & Graph Algorithms](#5-cypher-queries--graph-algorithms-the-product-depends-on) |
+| **Local Setup Instructions** | [Section 11: Complete Local Setup & Docker Guide](#11-complete-local-setup--deployment-guide) |
+| **Demo Video Walkthrough** | **[Watch Demo Video on YouTube / Drive](https://youtu.be/demo-link-placeholder)** *(or see live deployment)* |
+| **AI Disclosure (Rule 11)** | [Section 14: AI Coding Assistant Disclosure](#14-ai-coding-assistant-disclosure-rule-11) |
+| **Data Ethics (Rule 6)** | [Section 13: Synthetic Data Compliance](#13-data-ethics--synthetic-benchmark-disclosure-rule-6) |
+
+---
 
 ### 🔑 Judge & Evaluator Credentials (1-Click Auto-Fill on UI)
-| Role | Email | Password | Access Level |
+
+The live application features **1-click evaluation role presets** on the login screen:
+
+| Role | Email | Password | Access Level & Permissions |
 | :--- | :--- | :--- | :--- |
-| **Admin** | `admin@graphguard.ai` | `Admin@GraphGuard2026!` | Full command suite, user management & audit verification |
-| **Analyst** | `analyst@graphguard.ai` | `Analyst@GraphGuard2026!` | Multi-hop graph exploration, topological scoring, escalation |
-| **Reviewer** | `reviewer@graphguard.ai` | `Reviewer@GraphGuard2026!` | Case authorization, approve/reject simulated enforcement actions |
+| **Admin** | `admin@graphguard.ai` | `Admin@GraphGuard2026!` | Full command suite, user management, database reseed, audit verification |
+| **Analyst** | `analyst@graphguard.ai` | `Analyst@GraphGuard2026!` | Multi-hop graph exploration, topological scoring, escalation requests |
+| **Reviewer** | `reviewer@graphguard.ai` | `Reviewer@GraphGuard2026!` | Human-in-the-Loop enforcement gate: approve/reject transaction holds |
 | **Viewer** | `viewer@graphguard.ai` | `Viewer@GraphGuard2026!` | Read-only compliance observer |
 
 ---
 
 ## 1. Executive Summary
 
-Traditional fraud and Anti-Money Laundering (AML) detection platforms evaluate transactions in isolation using static tabular rules or machine-learning scores. Sophisticated financial crime syndicates systematically exploit this blind spot through **Account Takeover (ATO)**, **synthetic identities**, **mule hardware reuse**, and **multi-hop money laundering paths**.
+Traditional fraud and Anti-Money Laundering (AML) detection platforms evaluate transactions in isolation using static tabular rules or opaque ML classifier scores. Sophisticated financial crime syndicates systematically exploit this blind spot through **Account Takeover (ATO)**, **synthetic identities**, **mule hardware reuse**, and **multi-hop money laundering paths**.
 
-**GraphGuard AI** is an autonomous, graph-native fraud investigation and cyber intelligence command center. Instead of inspecting transactions as isolated rows in a table, GraphGuard AI utilizes **FalkorDB Cloud** as an ultra-low-latency connected data engine. 
+**GraphGuard AI** is an autonomous, graph-native fraud investigation and cyber intelligence command center. Instead of inspecting transactions as isolated rows in a table, GraphGuard AI utilizes **FalkorDB** as an ultra-low-latency connected data engine. 
 
 The agent autonomously executes multi-hop Cypher graph traversals across entity networks, computes explainable topological risk factors directly from graph topology, grounds its reasoning in verified database evidence, and enforces a strict **Human-in-the-Loop Security Gate** before any simulated enforcement action is written to a cryptographic, tamper-evident audit trail.
 
 ---
 
-## 2. Core Capabilities & Key Differentiators
+## 2. Why FalkorDB is Central (Rule 3: Real Work, Not Decoration)
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                            GRAPHGUARD AI PLATFORM                           │
-├──────────────────────┬───────────────────────────────┬──────────────────────┤
-│  CONNECTED DATA      │  EXPLAINABLE AI REASONING     │  ENTERPRISE GOVERNANCE│
-│  - FalkorDB Cloud    │  - Grounded Groq LPU LLM     │  - 5-Stage Human Gate│
-│  - Multi-Hop Cypher  │  - Factor Breakdown Scoring  │  - SHA-256 Hash Chain│
-│  - 7 Entity Models   │  - Strict Evidence Isolation  │  - SAR PDF Export    │
-│  - Sub-ms Traversal  │  - Model Confidence Metrics   │  - Role-Based Access │
-└──────────────────────┴───────────────────────────────┴──────────────────────┘
-```
+> **Rule 3 Compliance**: *"The graph has to do real work. A visualisation drawn on top of ordinary storage does not qualify: if the product still works once FalkorDB is taken out, the graph is decoration rather than the thing the product runs on."*
 
-- **Connected-Risk Discovery (FalkorDB)**: Uncovers multi-hop syndicates (up to 4+ hops) linking seemingly legitimate transactions to rooted devices, shared accounts, and historical fraud incidents in milliseconds.
-- **Explainable Topological Scoring**: Discards ungrounded AI guesses. Generates a mathematically verifiable risk score (0–100) where explicit factor weights sum exactly to the final assessment.
-- **Grounded AI Intelligence**: Clear architectural boundary separating *Verified FalkorDB Graph Evidence (Ground Truth)* from *AI Interpretation & Reasoning*. The LLM only receives verified graph facts.
-- **5-Stage Human-in-the-Loop Gate**: Autonomous agents recommend, but never independently execute high-impact decisions. Every enforcement step requires human officer authorization.
-- **Cryptographic Tamper-Evident Audit Trail**: Every investigation step, login, approval, and rejection is recorded in a persistent hash-chained audit ledger with 1-click cryptographic integrity verification.
-- **SAR Preparation & Investigation Export**: One-click generation of formatted, compliance-ready **Investigation & SAR Preparation Dossiers** in both PDF and structured JSON formats.
+In GraphGuard AI, **the graph is the core engine, not a visual overlay**. If FalkorDB is removed:
+1. **The Investigation Agent Collapses**: The agent traverses dynamic paths up to 4+ hops (`Transaction -> Device -> Mule Account -> Prior Incident`). Relational SQL databases would require complex, slow recursive CTEs that degrade under load.
+2. **Topological Risk Calculation Becomes Impossible**: The risk engine evaluates hardware sharing degrees, distance-to-incident metrics, and proxy hops directly from FalkorDB Cypher traversals.
+3. **Evidence Grounding Disappears**: The Groq LLM reasoning engine is strictly prohibited from guessing; it receives structured Cypher projection subgraphs from FalkorDB as verified ground truth.
+4. **Interactive Graph Exploration Fails**: The UI's dynamic graph canvas streams its nodes and edges directly from FalkorDB's native Cypher adjacency list queries in real time.
 
 ---
 
@@ -126,44 +132,78 @@ graph LR
 
 ---
 
-## 5. Primary Investigation Case Study: `TX-104`
+## 5. Cypher Queries & Graph Algorithms the Product Depends On
 
-The primary benchmark demonstrates how GraphGuard AI uncovers an evasive multi-hop wire fraud cash-out:
+GraphGuard AI's core capabilities directly depend on the following parameterized Cypher queries executed against FalkorDB:
 
-### Telemetry:
-- **Transaction**: `TX-104`
-- **Amount**: **$85,000.00 USD**
-- **Channel**: `WIRE_TRANSFER`
-- **Beneficiary**: `Swift Wire Escrow Express Corp`
-- **Origin Account**: `A501` (Customer Marcus Vance)
-
-### Autonomous Multi-Hop Discovery Path:
-```
-TX-104 ──> Account A501 ──> Device D55 ──> Account A887 ──> Incident F22
+### 1. Multi-Hop Syndicate & Incident Traversal (1 to 4 Hops)
+Uncovers whether an inbound transaction's hardware, network, or account links to known fraud syndicates:
+```cypher
+MATCH path = (t:Transaction {id: $tx_id})-[*1..4]-(target)
+WHERE target:Incident 
+   OR (target:Account AND target.status CONTAINS 'FROZEN') 
+   OR (target:Device AND target.is_rooted = true)
+RETURN path
 ```
 
-1. **Step 1 (Transaction Lookup)**: `TX-104` is initiated from checking account `A501`.
-2. **Step 2 (Device Telemetry)**: Hardware inspection reveals Device `D55` (MacBook running Headless Chrome, `is_rooted=True`).
-3. **Step 3 (Hardware Cross-Pollination)**: FalkorDB traverses `[:SHARED_WITH]` relationships and uncovers that Device `D55` was also used by Account `A887` (`FROZEN_COMPROMISED`).
-4. **Step 4 (Incident Linkage)**: Multi-hop graph traversal detects that Account `A887` is directly linked to **Incident F22** (*"Account Takeover wire fraud cash-out, $140,000 confirmed loss"*).
-5. **Step 5 (Network Telemetry)**: Network analysis reveals originating IP `198.51.100.24` is a confirmed Tor exit node and commercial VPN located in a Tier 3 high-risk geopolitical jurisdiction.
+### 2. Device Hardware Sharing & Cross-Account Association
+Identifies device reuse across accounts—a hallmark of synthetic identity rings and mule farms:
+```cypher
+MATCH (t:Transaction {id: $tx_id})-[:USED_DEVICE]->(d:Device)
+OPTIONAL MATCH (d)-[:SHARED_WITH|ASSOCIATED_WITH]-(other_a:Account)
+RETURN d, collect(other_a) AS connected_accounts
+```
 
-### Mathematical Risk Score Breakdown:
-The composite risk score is evaluated dynamically from verified graph features:
+### 3. Direct Incident Path Discovery
+Extracts the exact connected path from a transaction to prior confirmed losses:
+```cypher
+MATCH path = (t:Transaction {id: $tx_id})-[:USED_DEVICE]->(d:Device)-[:SHARED_WITH|ASSOCIATED_WITH*1..2]-(a:Account)-[:HAS_INCIDENT]->(inc:Incident)
+RETURN inc, a, path
+```
 
-$$\text{Risk Score} = \sum \text{Factor Contributions} = 35 + 30 + 15 + 10 + 8 = \mathbf{98/100} \quad (\text{HIGH / CRITICAL})$$
+### 4. Origin Network & Geopolitical Risk Resolution
+Resolves IP telemetry, proxy/VPN status, and territorial risk tier in a single traversal:
+```cypher
+MATCH (t:Transaction {id: $tx_id})-[:FROM_IP]->(ip:IP)-[:LOCATED_IN]->(loc:Location)
+RETURN ip, loc
+```
 
-| Factor Name | Contribution | Verified Graph Evidence |
-| :--- | :---: | :--- |
-| **Connected Fraud Incident** | `+35 pts` | Direct syndicate path to Incident `F22` ($140,000 prior loss) |
-| **High-Value Rapid Wire** | `+30 pts` | $85,000 off-hours outbound wire transfer |
-| **Rooted Hardware / Shared Device** | `+15 pts` | Jailbroken hardware `D55` shared across multiple accounts |
-| **Network Anomaly / Tor/VPN** | `+10 pts` | Originating from commercial VPN / Tor exit-node `198.51.100.24` |
-| **Account Velocity & Mule Links** | `+8 pts` | Multi-hop links to known high-velocity mule accounts |
+### 5. Velocity & Account Transaction Dispersion
+Detects rapid sequential transactions originating from the same entity:
+```cypher
+MATCH (t:Transaction {id: $tx_id})<-[:MADE]-(a:Account)-[:MADE]->(other_t:Transaction)
+WHERE other_t.id <> $tx_id
+RETURN other_t
+```
 
 ---
 
-## 6. Human-in-the-Loop Security Gate
+## 6. Primary Investigation Benchmark: `TX-104` vs `TX-101`
+
+The benchmark illustrates the power of connected-data analysis over isolated inspection:
+
+### Benchmark Case 1: `TX-104` (High-Risk Syndicate Wire)
+- **Amount**: **$85,000.00 USD** | **Channel**: `WIRE_TRANSFER` | **Beneficiary**: `Swift Wire Escrow Express Corp`
+- **Isolated View**: Outbound wire from account with sufficient balance.
+- **Connected Graph View (FalkorDB)**:
+  ```
+  TX-104 ──> Account A501 ──> Device D55 (Rooted) ──> Account A887 (Frozen) ──> Incident F22 ($140K Loss)
+  ```
+- **Topological Assessment**: **98/100 (HIGH / CRITICAL)**
+  - `+35 pts`: Linked to Incident `F22` ($140,000 prior wire fraud loss)
+  - `+30 pts`: High-value off-hours wire ($85,000)
+  - `+15 pts`: Rooted hardware `D55` shared across multiple compromised accounts
+  - `+10 pts`: Commercial VPN / Tor exit-node `198.51.100.24`
+  - `+8 pts`: Mule account linkage
+
+### Benchmark Case 2: `TX-101` (Clean Baseline Transaction)
+- **Amount**: **$120.00 USD** | **Merchant**: `Whole Foods Market` | **Channel**: `POS`
+- **Connected Graph View**: Originates from verified device `D101`, legitimate IP `203.0.113.19`, zero incident links.
+- **Topological Assessment**: **5/100 (LOW / CLEAN)** — immediate automated pass.
+
+---
+
+## 7. 5-Stage Human-in-the-Loop Security Gate
 
 To guarantee safety in enterprise financial workflows, GraphGuard AI enforces a **5-Stage Human Enforcement Gate**:
 
@@ -183,7 +223,7 @@ graph LR
 
 ---
 
-## 7. Cryptographic Tamper-Evident Audit Trail
+## 8. Cryptographic Tamper-Evident Audit Trail
 
 Every state change, authentication event, investigation, and approval decision is signed into a **SHA-256 cryptographic hash chain**:
 
@@ -202,7 +242,7 @@ $$\text{event\_hash}_n = \text{SHA-256}(\text{event\_hash}_{n-1} + \text{canonic
 
 ---
 
-## 8. Role-Based Access Control (RBAC)
+## 9. Role-Based Access Control (RBAC)
 
 GraphGuard AI enforces fine-grained authorization server-side using Argon2id password hashing and JWT security tokens:
 
@@ -215,25 +255,75 @@ GraphGuard AI enforces fine-grained authorization server-side using Argon2id pas
 
 ---
 
-## 9. Suspicious Activity Report (SAR) Dossier Export
+## 10. Regulatory SAR Preparation Dossier Export
 
 Compliance teams can export full investigation dossiers directly from the investigation header:
 
-- **PDF Export**: Generates a formatted, multi-page regulatory briefing document including:
-  - Official case header and timestamp
-  - Transaction profile and execution telemetry
-  - Connected data and FalkorDB graph evidence summary
-  - Explainable risk factor score breakdown table
-  - Human-in-the-Loop authorization audit record and cryptographic hash
-- **JSON Docket Export**: Complete machine-readable data structure for automated upstream ingestion into core banking or AML case management systems.
-
-*Disclaimer: GraphGuard AI is designed to support fraud, AML, and SAR preparation investigation workflows. Exported dossiers support regulatory SAR preparation and do not claim to replace statutory filing portals.*
+- **PDF Export**: Generates a formatted regulatory briefing document with case telemetry, FalkorDB graph topology findings, risk score breakdown, and officer authorization signatures.
+- **JSON Docket Export**: Machine-readable data structure for automated upstream ingestion into core banking or AML case management systems.
 
 ---
 
-## 10. Automated Test Suite & Quality Verification
+## 11. Complete Local Setup & Deployment Guide
+
+You can run GraphGuard AI locally via Docker Compose or manual setup.
+
+### Option A: 1-Click Docker Compose (Recommended)
+
+```bash
+# 1. Clone repository
+git clone https://github.com/sahuanshika557-sys/GRAPHGUARD.AI.git
+cd GRAPHGUARD.AI
+
+# 2. Launch complete stack (FalkorDB + Backend + Frontend)
+docker compose up --build
+```
+- Frontend: `http://localhost:5173`
+- Backend API Docs: `http://localhost:8000/docs`
+- FalkorDB: `localhost:6379`
+
+---
+
+### Option B: Manual Local Setup
+
+#### 1. Backend Setup (FastAPI + Python 3.11+)
+```bash
+cd backend
+python -m venv venv
+
+# Activate virtual environment
+# Windows:
+.\venv\Scripts\activate
+# Linux/macOS:
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Configure environment
+cp ../.env.example .env
+
+# Run FastAPI backend
+python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
+```
+
+#### 2. Frontend Setup (React 19 + Vite)
+```bash
+cd frontend
+npm install
+npm run dev
+```
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+---
+
+## 12. Automated Integration & Security Test Suite
 
 The platform is validated against a comprehensive automated integration and security test suite:
+
+```bash
+pytest tests/ -v
+```
 
 ```text
 ============================= test session starts =============================
@@ -272,16 +362,27 @@ tests/test_security.py::test_17_admin_password_reset PASSED              [100%]
 
 ---
 
-## 11. Security & Production Hardening
+## 13. Data Ethics & Synthetic Benchmark Disclosure (Rule 6)
 
-- **Zero Secret Exposure**: The frontend production bundle is completely scrubbed of API keys, database credentials, and authentication secrets.
-- **Argon2id Password Storage**: User passwords are encrypted with memory-hard Argon2id hashing algorithms.
-- **Server-Side Authorization**: API routes actively enforce role permissions independently of UI visibility.
-- **Strict Rate-Limiting & Generic Errors**: Authentication failures return generic messages (`Invalid email or password.`) to prevent account enumeration.
+> **Rule 6 Compliance**: *"Your project must use data you are allowed to use: public, synthetic, or your own. Do not load private, login-protected, paywalled, personal, or otherwise restricted information into your graph."*
+
+- **100% Synthetic AML Benchmark**: All customer records, account numbers, device hardware fingerprints, transaction amounts, and IP addresses are completely synthetic datasets generated for benchmarking graph-based AML detection.
+- **Zero Restricted PII**: No real personal identifying information, proprietary banking data, or restricted credentials exist in any layer of this application.
 
 ---
 
-## 12. License & Acknowledgements
+## 14. AI Coding Assistant Disclosure (Rule 11)
 
-Developed for **GRAPH Hacks 2026** (Track 01: *Agents That Act on Connected Data*).  
-Built with **FalkorDB**, **FastAPI**, **Groq AI**, **React 19**, and **React Flow**.
+> **Rule 11 Compliance**: *"AI coding assistants are allowed, but their use must be disclosed."*
+
+- **Disclosure**: AI coding assistants (Google Antigravity & Gemini) were utilized during the hackathon for code scaffolding, repetitive boilerplate generation, and cloud deployment configuration.
+- **Author Contribution & Verification**: All core graph models, Cypher queries, mathematical scoring formulas, human-in-the-loop security architectures, and test suites were designed, implemented, reviewed, and verified by the participant in accordance with Rule 12 and Rule 13.
+
+---
+
+## 15. Team & Acknowledgements
+
+- **Participant**: Anshika Sahu ([@sahuanshika557-sys](https://github.com/sahuanshika557-sys))
+- **Track**: Track 01 — *Agents That Act on Connected Data*
+- **Hackathon**: GRAPH Hacks 2026 (Organized by FalkorDB & WeMakeDevs)
+- **Tech Stack**: FalkorDB Cloud, Python FastAPI, Groq LPU, React 19, TailwindCSS, React Flow, ReportLab.
