@@ -3,7 +3,9 @@
  * Includes Argon2/JWT Authentication, RBAC, and Security Token Handling.
  */
 
-const API_BASE = "/api";
+const API_BASE = import.meta.env.VITE_API_URL
+  ? `${import.meta.env.VITE_API_URL.replace(/\/$/, "")}/api`
+  : "/api";
 const TOKEN_KEY = "graphguard_auth_token";
 
 export function getAuthToken() {
