@@ -77,15 +77,19 @@
 
 ---
 
-### [2:45 – 3:00] Conclusion & Live Call to Action
-**🖥️ What to show on screen**: Zoom back out to the top navigation showing the live Vercel and Render links.
+### [2:45 – 3:00] Conclusion & The FalkorDB Advantage
+**🖥️ What to show on screen**: Zoom out to show the live Vercel and Render links, highlighting the **FalkorDB Cloud (LIVE)** indicator.
 
 **🗣️ What to say**:
-> "GraphGuard AI is 100% deployed and live right now on Vercel, Render, and FalkorDB Cloud, with 26 automated tests passing.
+> "To put it simply: **if you remove FalkorDB, GraphGuard AI completely stops working.** 
 > 
-> We are proud to submit for **Track 01: Agents That Act on Connected Data**.
+> Ordinary databases can only store numbers in flat boxes, but **FalkorDB is the central nervous system, the brain, and the eyes** that give our AI agent the power to see the entire criminal web in milliseconds. 
 > 
-> Remember: **Don't just detect the anomaly. Follow the connections with FalkorDB.**
+> FalkorDB turns raw, disconnected transactions into actionable, connected cyber intelligence.
+> 
+> GraphGuard AI is live on Vercel, Render, and FalkorDB Cloud.
+> 
+> Remember: **Don't just detect the anomaly. Follow the connections with FalkorDB!**
 > 
 > Thank you!"
 
