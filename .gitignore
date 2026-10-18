@@ -39,3 +39,8 @@ data/*.db
 data/*.sqlite3
 data/audit_log.json
 *.log
+
+# Personal presentation notes & pitch scripts
+*pitch*
+*PITCH*
+PITCH_SCRIPT_3_MIN.md
