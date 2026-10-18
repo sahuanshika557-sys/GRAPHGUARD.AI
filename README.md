@@ -4,15 +4,25 @@
 
 **GRAPH Hacks 2026** — *Track 01: Agents That Act on Connected Data*
 
-[![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.12%20%7C%203.13-3776AB?logo=python&logoColor=white)](https://python.org)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.121-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
-[![FalkorDB](https://img.shields.io/badge/FalkorDB-Cloud%20Cypher%20Graph%20Layer-FF4438?logo=redis&logoColor=white)](https://falkordb.com)
-[![Groq](https://img.shields.io/badge/Groq%20AI-LPU%20Inference%20(Qwen%202.5)-F55036?logo=speedtest&logoColor=white)](https://groq.com)
-[![React](https://img.shields.io/badge/React%2019-Vite-61DAFB?logo=react&logoColor=black)](https://react.dev)
-[![React Flow](https://img.shields.io/badge/React%20Flow-Interactive%20Graph-FF0072?logo=diagram&logoColor=white)](https://reactflow.dev)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v4.0-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
-[![Tests](https://img.shields.io/badge/Tests-26%2F26%20Passing-10B981?logo=pytest&logoColor=white)](https://pytest.org)
-[![Security](https://img.shields.io/badge/Audit-SHA--256%20Hash--Chained-8B5CF6?logo=shield&logoColor=white)](https://csrc.nist.gov)
+[![Live App](https://img.shields.io/badge/Live%20Demo-graphguard--ai--brown.vercel.app-00E5FF?style=for-the-badge&logo=vercel&logoColor=black)](https://graphguard-ai-brown.vercel.app/)
+[![Backend Engine](https://img.shields.io/badge/Backend%20API-graphguard--ai.onrender.com-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://graphguard-ai.onrender.com)
+[![FalkorDB Cloud](https://img.shields.io/badge/FalkorDB%20Cloud-Live%20Cluster-FF4438?style=for-the-badge&logo=redis&logoColor=white)](https://falkordb.com)
+[![Tests](https://img.shields.io/badge/Tests-26%2F26%20Passing-10B981?style=for-the-badge&logo=pytest&logoColor=white)](https://pytest.org)
+
+---
+
+### 🌐 Live Production Deployment
+- 🚀 **Interactive Investigation Console**: **[https://graphguard-ai-brown.vercel.app/](https://graphguard-ai-brown.vercel.app/)**
+- ⚡ **Backend API Engine**: **[https://graphguard-ai.onrender.com](https://graphguard-ai.onrender.com)**
+- 🧠 **Context & Graph Layer**: **FalkorDB Cloud** (AWS ap-south-1 cluster)
+
+### 🔑 Judge & Evaluator Credentials (1-Click Auto-Fill on UI)
+| Role | Email | Password | Access Level |
+| :--- | :--- | :--- | :--- |
+| **Admin** | `admin@graphguard.ai` | `Admin@GraphGuard2026!` | Full command suite, user management & audit verification |
+| **Analyst** | `analyst@graphguard.ai` | `Analyst@GraphGuard2026!` | Multi-hop graph exploration, topological scoring, escalation |
+| **Reviewer** | `reviewer@graphguard.ai` | `Reviewer@GraphGuard2026!` | Case authorization, approve/reject simulated enforcement actions |
+| **Viewer** | `viewer@graphguard.ai` | `Viewer@GraphGuard2026!` | Read-only compliance observer |
 
 ---
 
