@@ -12,7 +12,7 @@
 
 ---
 
-## 📋 Hackathon Submission Deliverables (Rule 10 Compliance)
+## 📋 Hackathon Submission Deliverables
 
 | Requirement  | Submission Link / Verification |
 | :--- | :--- |
@@ -24,7 +24,7 @@
 | **Graph Data Model & Topology** | [Section 4: Graph Topology & Data Model](#4-graph-topology--data-model) |
 | **Cypher Queries & Algorithms** | [Section 5: Cypher Queries & Graph Algorithms](#5-cypher-queries--graph-algorithms-the-product-depends-on) |
 | **Local Setup Instructions** | [Section 11: Complete Local Setup & Docker Guide](#11-complete-local-setup--deployment-guide) |
-| **Demo Video Walkthrough** | **[Watch Demo Video on YouTube / Drive](https://youtu.be/demo-link-placeholder)** *(or see live deployment)* |
+| **Demo Video Walkthrough** | **[Watch Demo Video on YouTube](https://youtu.be/pkot09iSjYc)**  |
 | **AI Disclosure ** | [Section 14: AI Coding Assistant Disclosure](#14-ai-coding-assistant-disclosure-rule-11) |
 | **Data Ethics ** | [Section 13: Synthetic Data Compliance](#13-data-ethics--synthetic-benchmark-disclosure-rule-6) |
 
