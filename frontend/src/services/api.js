@@ -225,37 +225,94 @@ export async function runInvestigation(query, txId = null) {
 }
 
 export function streamInvestigation(query, txId, onEvent, onError, onComplete) {
-  const params = new URLSearchParams();
-  if (query) params.append("query", query);
-  if (txId) params.append("tx_id", txId);
+  let isCancelled = false;
+  const controller = new AbortController();
 
-  const eventSource = new EventSource(`${API_BASE}/investigate/stream?${params.toString()}`);
-
-  eventSource.onmessage = (event) => {
+  (async () => {
     try {
-      const data = JSON.parse(event.data);
-      if (data.event === "COMPLETE") {
-        onEvent(data);
-        if (onComplete) onComplete(data.result);
-        eventSource.close();
-      } else if (data.event === "ERROR") {
-        if (onError) onError(new Error(data.message || "Investigation error"));
-        eventSource.close();
-      } else {
-        onEvent(data);
+      const token = getAuthToken();
+      const params = new URLSearchParams();
+      if (query) params.append("query", query);
+      if (txId) params.append("tx_id", txId);
+      if (token) params.append("token", token);
+
+      const headers = {
+        "Accept": "text/event-stream"
+      };
+      if (token) {
+        headers["Authorization"] = `Bearer ${token}`;
+      }
+
+      const res = await fetch(`${API_BASE}/investigate/stream?${params.toString()}`, {
+        headers,
+        signal: controller.signal
+      });
+
+      if (!res.ok) {
+        // Fallback to synchronous POST /investigate if SSE connection fails
+        console.warn(`SSE stream returned status ${res.status}. Falling back to standard investigation...`);
+        const fallbackResult = await runInvestigation(query, txId);
+        if (!isCancelled && onComplete) {
+          onComplete(fallbackResult);
+        }
+        return;
+      }
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+
+      while (!isCancelled) {
+        const { value, done } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split("\n");
+        buffer = lines.pop(); // Retain remainder in buffer
+
+        for (const line of lines) {
+          const trimmed = line.trim();
+          if (trimmed.startsWith("data:")) {
+            const jsonStr = trimmed.slice(5).trim();
+            if (!jsonStr) continue;
+            try {
+              const data = JSON.parse(jsonStr);
+              if (data.event === "COMPLETE") {
+                if (onEvent) onEvent(data);
+                if (onComplete) onComplete(data.result);
+                return;
+              } else if (data.event === "ERROR") {
+                if (onError) onError(new Error(data.message || "Investigation error"));
+                return;
+              } else {
+                if (onEvent) onEvent(data);
+              }
+            } catch (parseErr) {
+              console.warn("Error parsing stream chunk", parseErr);
+            }
+          }
+        }
       }
     } catch (err) {
-      console.error("Error parsing SSE data", err);
+      if (isCancelled) return;
+      console.warn("Streaming encountered an issue, executing fallback investigation:", err);
+      try {
+        const fallbackResult = await runInvestigation(query, txId);
+        if (!isCancelled && onComplete) {
+          onComplete(fallbackResult);
+        }
+      } catch (fallbackErr) {
+        if (!isCancelled && onError) {
+          onError(fallbackErr);
+        }
+      }
     }
-  };
+  })();
 
-  eventSource.onerror = (err) => {
-    console.error("SSE Connection error", err);
-    if (onError) onError(err);
-    eventSource.close();
+  return () => {
+    isCancelled = true;
+    controller.abort();
   };
-
-  return () => eventSource.close();
 }
 
 export async function requestActionApproval(payload) {
