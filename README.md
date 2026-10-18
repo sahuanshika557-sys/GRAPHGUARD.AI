@@ -6,221 +6,272 @@
 
 [![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.12%20%7C%203.13-3776AB?logo=python&logoColor=white)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.121-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
-[![FalkorDB](https://img.shields.io/badge/FalkorDB-Cypher%20Graph%20Layer-FF4438?logo=redis&logoColor=white)](https://falkordb.com)
-[![Groq](https://img.shields.io/badge/Groq%20AI-Llama%20%7C%20Qwen-F55036?logo=speedtest&logoColor=white)](https://groq.com)
+[![FalkorDB](https://img.shields.io/badge/FalkorDB-Cloud%20Cypher%20Graph%20Layer-FF4438?logo=redis&logoColor=white)](https://falkordb.com)
+[![Groq](https://img.shields.io/badge/Groq%20AI-LPU%20Inference%20(Qwen%202.5)-F55036?logo=speedtest&logoColor=white)](https://groq.com)
 [![React](https://img.shields.io/badge/React%2019-Vite-61DAFB?logo=react&logoColor=black)](https://react.dev)
 [![React Flow](https://img.shields.io/badge/React%20Flow-Interactive%20Graph-FF0072?logo=diagram&logoColor=white)](https://reactflow.dev)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v4.0-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![Tests](https://img.shields.io/badge/Tests-26%2F26%20Passing-10B981?logo=pytest&logoColor=white)](https://pytest.org)
+[![Security](https://img.shields.io/badge/Audit-SHA--256%20Hash--Chained-8B5CF6?logo=shield&logoColor=white)](https://csrc.nist.gov)
 
 ---
 
 ## 1. Executive Summary
 
-Traditional fraud and AML (Anti-Money Laundering) detection platforms evaluate transactions in isolation using tabular heuristics or rigid machine-learning thresholds. Sophisticated fraud syndicates exploit this blind spot through **Account Takeover (ATO)**, **synthetic identities**, **mule hardware reuse**, and **multi-hop money laundering paths**.
+Traditional fraud and Anti-Money Laundering (AML) detection platforms evaluate transactions in isolation using static tabular rules or machine-learning scores. Sophisticated financial crime syndicates systematically exploit this blind spot through **Account Takeover (ATO)**, **synthetic identities**, **mule hardware reuse**, and **multi-hop money laundering paths**.
 
-**GraphGuard AI** is an autonomous, graph-first AI investigation console. Instead of treating an anomalous transaction as a standalone data point, GraphGuard AI queries **FalkorDB** as a high-speed, connected-data context layer. The agent executes multi-hop Cypher traversals, calculates topological risk from real graph evidence, explains its reasoning with an integrated LLM (Groq / OpenAI / Gemini), and requires **Human-in-the-Loop** verification before executing actions into an immutable audit trail.
+**GraphGuard AI** is an autonomous, graph-native fraud investigation and cyber intelligence command center. Instead of inspecting transactions as isolated rows in a table, GraphGuard AI utilizes **FalkorDB Cloud** as an ultra-low-latency connected data engine. 
+
+The agent autonomously executes multi-hop Cypher graph traversals across entity networks, computes explainable topological risk factors directly from graph topology, grounds its reasoning in verified database evidence, and enforces a strict **Human-in-the-Loop Security Gate** before any simulated enforcement action is written to a cryptographic, tamper-evident audit trail.
 
 ---
 
-## 2. Target Architecture
+## 2. Core Capabilities & Key Differentiators
 
 ```
-                      ┌──────────────────────────────────────┐
-                      │    React 19 + Vite + Tailwind CSS    │
-                      │    Interactive React Flow Canvas     │
-                      └──────────────────┬───────────────────┘
-                                         │  (SSE Streaming & REST)
-                                         ▼
-                      ┌──────────────────────────────────────┐
-                      │       FastAPI Backend Server         │
-                      │      (Python 3.11 - 3.13)            │
-                      └──────────────────┬───────────────────┘
-                                         │
-                 ┌───────────────────────┴───────────────────────┐
-                 ▼                                               ▼
-   ┌───────────────────────────┐                   ┌───────────────────────────┐
-   │    GraphGuard AI Agent    │                   │   FalkorDB Graph Engine   │
-   │  - Multi-Hop Reasoner     │                   │  - Low-Latency Cypher     │
-   │  - Groq / OpenAI LLM      │ ◄─ Cypher Query ─►│  - Topological Indexing   │
-   │  - Tool-Calling Registry  │                   │  - 7 Entity Types         │
-   └─────────────┬─────────────┘                   └───────────────────────────┘
-                 │
-                 ▼
-   ┌───────────────────────────┐
-   │ Human-in-the-Loop Check   │
-   │  - Approve / Reject Gate  │
-   │  - Automated Audit Trail  │
-   └───────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                            GRAPHGUARD AI PLATFORM                           │
+├──────────────────────┬───────────────────────────────┬──────────────────────┤
+│  CONNECTED DATA      │  EXPLAINABLE AI REASONING     │  ENTERPRISE GOVERNANCE│
+│  - FalkorDB Cloud    │  - Grounded Groq LPU LLM     │  - 5-Stage Human Gate│
+│  - Multi-Hop Cypher  │  - Factor Breakdown Scoring  │  - SHA-256 Hash Chain│
+│  - 7 Entity Models   │  - Strict Evidence Isolation  │  - SAR PDF Export    │
+│  - Sub-ms Traversal  │  - Model Confidence Metrics   │  - Role-Based Access │
+└──────────────────────┴───────────────────────────────┴──────────────────────┘
+```
+
+- **Connected-Risk Discovery (FalkorDB)**: Uncovers multi-hop syndicates (up to 4+ hops) linking seemingly legitimate transactions to rooted devices, shared accounts, and historical fraud incidents in milliseconds.
+- **Explainable Topological Scoring**: Discards ungrounded AI guesses. Generates a mathematically verifiable risk score (0–100) where explicit factor weights sum exactly to the final assessment.
+- **Grounded AI Intelligence**: Clear architectural boundary separating *Verified FalkorDB Graph Evidence (Ground Truth)* from *AI Interpretation & Reasoning*. The LLM only receives verified graph facts.
+- **5-Stage Human-in-the-Loop Gate**: Autonomous agents recommend, but never independently execute high-impact decisions. Every enforcement step requires human officer authorization.
+- **Cryptographic Tamper-Evident Audit Trail**: Every investigation step, login, approval, and rejection is recorded in a persistent hash-chained audit ledger with 1-click cryptographic integrity verification.
+- **SAR Preparation & Investigation Export**: One-click generation of formatted, compliance-ready **Investigation & SAR Preparation Dossiers** in both PDF and structured JSON formats.
+
+---
+
+## 3. High-Level System Architecture
+
+```mermaid
+graph TD
+    subgraph UI ["Enterprise Frontend Workspace (React 19 + React Flow)"]
+        A1["Interactive Graph Hero Canvas"]
+        A2["Explainable Risk Gauge"]
+        A3["Dynamic Node Inspector"]
+        A4["5-Stage Human Approval Stepper"]
+        A5["Tamper-Evident Audit View"]
+    end
+
+    subgraph API ["Application & Security Core (FastAPI)"]
+        B1["RBAC & Argon2id Authentication"]
+        B2["SSE Real-Time Stream Gateway"]
+        B3["Security Event Logger"]
+        B4["SAR Dossier Export Engine"]
+    end
+
+    subgraph Engine ["Connected Intelligence Layer"]
+        C1["Autonomous Investigator Agent"]
+        C2["Topological Risk Engine"]
+        C3["FalkorDB Cloud Graph Engine (Cypher)"]
+        C4["Groq LPU Reasoning Service"]
+    end
+
+    subgraph Audit ["Cryptographic Persistence"]
+        D1["SQLite Persistent Ledger"]
+        D2["SHA-256 Hash-Chaining Engine"]
+    end
+
+    UI <==>|"SSE Streaming & REST"| API
+    API <==> Engine
+    C1 <-->|"Cypher Multi-Hop Query"| C3
+    C1 <-->|"Contextual Evidence Grounding"| C4
+    API -->|"Immutable Event Signing"| Audit
 ```
 
 ---
 
-## 3. Graph Data Model
+## 4. Graph Topology & Data Model
 
-GraphGuard AI models financial networks using 7 entity labels and 10 relationship types:
+GraphGuard AI models connected financial ecosystems across **7 distinct entity labels** and **10 relationship types** indexed for rapid Cypher traversal:
 
-### Entities (Nodes)
-1. **`Customer`**: Identity, KYC status, risk rating, email, phone.
-2. **`Account`**: Checking, savings, or offshore accounts; balance, status (ACTIVE, FROZEN, COMPROMISED).
-3. **`Transaction`**: Amount, timestamp, merchant, transfer channel (WIRE, ACH, POS), status.
-4. **`Device`**: Hardware fingerprint, OS, browser, jailbreak/root status, trust score.
-5. **`IP`**: IP address, ISP, VPN status, Tor exit node detection, ASN.
-6. **`Location`**: City, country, coordinates, AML geopolitical risk tier (Tier 1 to 3).
-7. **`Incident`**: Historical fraud cases, chargebacks, SAR filings, loss amounts.
+```mermaid
+graph LR
+    Cust["Customer<br/>(Identity & KYC)"] -->|OWNS| Acc["Account<br/>(Checking / Savings)"]
+    Acc -->|MADE| Tx["Transaction<br/>(Wire / ACH / POS)"]
+    Tx -->|USED_DEVICE| Dev["Device<br/>(Hardware Telemetry)"]
+    Tx -->|FROM_IP| IP["IP Address<br/>(ASN & ISP Telemetry)"]
+    IP -->|LOCATED_IN| Loc["Location<br/>(Geopolitical Risk)"]
+    Dev -->|SHARED_WITH| Acc2["Mule Account"]
+    Acc2 -->|HAS_INCIDENT| Inc["Incident<br/>(Prior Fraud / Theft)"]
+    Cust -->|RELATED_TO| Cust2["Customer"]
+```
 
-### Relationships (Edges)
-- `(:Customer)-[:OWNS]->(:Account)`
-- `(:Account)-[:MADE]->(:Transaction)`
-- `(:Transaction)-[:USED_DEVICE]->(:Device)`
-- `(:Transaction)-[:FROM_IP]->(:IP)`
-- `(:IP)-[:LOCATED_IN]->(:Location)`
-- `(:Account)-[:ASSOCIATED_WITH]->(:Device)`
-- `(:Account)-[:ASSOCIATED_WITH_IP]->(:IP)`
-- `(:Account)-[:HAS_INCIDENT]->(:Incident)`
-- `(:Customer)-[:RELATED_TO]->(:Customer)`
-- `(:Device)-[:SHARED_WITH]->(:Account)`
+### Node Entities:
+- **`Customer`**: KYC status, risk tier, registered identity, contact telemetry.
+- **`Account`**: Account balance, status (`ACTIVE`, `FROZEN`, `COMPROMISED`), currency, creation date.
+- **`Transaction`**: Amount, timestamp, merchant/beneficiary, channel (`WIRE_TRANSFER`, `ACH`, `CARD`), status.
+- **`Device`**: Hardware fingerprint, OS, browser, jailbreak/root status, trust score.
+- **`IP`**: IP address, ISP, VPN indicator, Tor exit node detection, ASN metadata.
+- **`Location`**: City, country, coordinates, AML geopolitical risk classification (Tiers 1 to 3).
+- **`Incident`**: Historical fraud cases, chargeback syndicates, SAR filings, confirmed financial loss amounts.
 
 ---
 
-## 4. The Primary Demo: Investigating `TX-104`
+## 5. Primary Investigation Case Study: `TX-104`
 
-`TX-104` is a deterministic synthetic demo transaction of **$85,000.00** via `WIRE_TRANSFER` at 02:45 AM.
+The primary benchmark demonstrates how GraphGuard AI uncovers an evasive multi-hop wire fraud cash-out:
 
-### Autonomous Graph Discovery
-1. **Transaction Identified**: `TX-104` belongs to Account `A501` (Customer `C101` — Marcus Vance).
-2. **Device Analysis**: `TX-104` was submitted from Device `D55` (MacBook Pro 16 running Headless Chrome, `is_rooted=True`).
-3. **Shared Mule Hardware**: Device `D55` is shared with Account `A887` (Elena Rostova, status `FROZEN_COMPROMISED`).
-4. **Prior Incident Link**: Account `A887` is directly linked via `HAS_INCIDENT` to Incident `F22` (*"Account Takeover wire fraud syndicate cash-out, $140,000 loss"*).
-5. **Network Obfuscation**: Originated from `IP-198-51-100-24` (Tor exit node, commercial VPN) in `LOC-MOSCOW` (Tier 3 High Risk).
+### Telemetry:
+- **Transaction**: `TX-104`
+- **Amount**: **$85,000.00 USD**
+- **Channel**: `WIRE_TRANSFER`
+- **Beneficiary**: `Swift Wire Escrow Express Corp`
+- **Origin Account**: `A501` (Customer Marcus Vance)
 
-### Discovered Multi-Hop Topological Path:
+### Autonomous Multi-Hop Discovery Path:
 ```
 TX-104 ──> Account A501 ──> Device D55 ──> Account A887 ──> Incident F22
 ```
 
-### Risk Calculation & Action:
-- **Risk Score**: `98/100` (HIGH RISK)
-- **Confidence**: `94%`
-- **Recommendation**: `FLAG_TRANSACTION`
-- **Human Gate**: Execution is paused until an authorized AML Compliance Officer approves the action.
-- **Audit Persistence**: Generates a permanent record with Audit ID, timestamp, operator signature, and execution outcome.
+1. **Step 1 (Transaction Lookup)**: `TX-104` is initiated from checking account `A501`.
+2. **Step 2 (Device Telemetry)**: Hardware inspection reveals Device `D55` (MacBook running Headless Chrome, `is_rooted=True`).
+3. **Step 3 (Hardware Cross-Pollination)**: FalkorDB traverses `[:SHARED_WITH]` relationships and uncovers that Device `D55` was also used by Account `A887` (`FROZEN_COMPROMISED`).
+4. **Step 4 (Incident Linkage)**: Multi-hop graph traversal detects that Account `A887` is directly linked to **Incident F22** (*"Account Takeover wire fraud cash-out, $140,000 confirmed loss"*).
+5. **Step 5 (Network Telemetry)**: Network analysis reveals originating IP `198.51.100.24` is a confirmed Tor exit node and commercial VPN located in a Tier 3 high-risk geopolitical jurisdiction.
+
+### Mathematical Risk Score Breakdown:
+The composite risk score is evaluated dynamically from verified graph features:
+
+$$\text{Risk Score} = \sum \text{Factor Contributions} = 35 + 30 + 15 + 10 + 8 = \mathbf{98/100} \quad (\text{HIGH / CRITICAL})$$
+
+| Factor Name | Contribution | Verified Graph Evidence |
+| :--- | :---: | :--- |
+| **Connected Fraud Incident** | `+35 pts` | Direct syndicate path to Incident `F22` ($140,000 prior loss) |
+| **High-Value Rapid Wire** | `+30 pts` | $85,000 off-hours outbound wire transfer |
+| **Rooted Hardware / Shared Device** | `+15 pts` | Jailbroken hardware `D55` shared across multiple accounts |
+| **Network Anomaly / Tor/VPN** | `+10 pts` | Originating from commercial VPN / Tor exit-node `198.51.100.24` |
+| **Account Velocity & Mule Links** | `+8 pts` | Multi-hop links to known high-velocity mule accounts |
 
 ---
 
-## 5. Agent Tools Registry
+## 6. Human-in-the-Loop Security Gate
 
-The agent operates on a comprehensive graph tool library:
+To guarantee safety in enterprise financial workflows, GraphGuard AI enforces a **5-Stage Human Enforcement Gate**:
 
-| Tool Name | Cypher / Graph Operation | Purpose |
-| :--- | :--- | :--- |
-| `get_transaction` | `MATCH (t:Transaction {id: $id}) RETURN t` | Lookup transaction details |
-| `get_account` | `MATCH (a:Account {id: $id}) RETURN a` | Resolve account balance & status |
-| `get_customer` | `MATCH (c:Customer)-[:OWNS]->(a:Account)` | Retrieve KYC identity profile |
-| `find_connected_accounts` | `MATCH (t)-[:USED_DEVICE]->(d)-[:SHARED_WITH]-(a)` | Detect mule account clusters |
-| `find_shared_devices` | `MATCH (d:Device {id: $id})-[:SHARED_WITH]-(a)` | Check hardware cross-pollination |
-| `find_related_ips` | `MATCH (t)-[:FROM_IP]->(ip:IP)` | Retrieve network endpoint telemetry |
-| `find_location` | `MATCH (ip)-[:LOCATED_IN]->(loc:Location)` | Evaluate geopolitical sanction risk |
-| `find_previous_incidents` | `MATCH path = (t)-[*1..4]-(inc:Incident)` | 1-to-4 hop historical incident search |
-| `find_related_transactions`| `MATCH (t)<-[:MADE]-(a)-[:MADE]->(t2)` | Check account transaction history |
-| `calculate_risk` | Topological Graph Feature Extractor | Computes dynamic risk score (0-100) |
-| `recommend_action` | Action Decision Tree | Determines compliance triage action |
-| `flag_transaction` | Transaction State Machine | Intercepts & freezes transaction |
-| `create_investigation` | SAR Case Manager | Generates formal investigation docket |
-| `get_audit_history` | Audit Service | Fetches immutable audit trail entries |
+```mermaid
+graph LR
+    S1["01: AI Recommendation"] --> S2["02: Human Review Required"]
+    S2 --> S3["03: Approved / Rejected"]
+    S3 --> S4["04: Simulated Action Executed"]
+    S4 --> S5["05: Audit Recorded"]
+```
+
+1. **AI Recommendation**: The agent evaluates graph evidence and proposes an enforcement action (e.g., `FLAG_TRANSACTION`).
+2. **Human Review Required**: The case is escalated. The action cannot execute autonomously.
+3. **Officer Decision**: An authenticated reviewer or administrator reviews the evidence graph and makes an explicit `APPROVE` or `REJECT` decision.
+4. **Simulated Action Executed**: The approved action executes safely through the simulated enforcement layer.
+5. **Audit Recorded**: The entire decision docket, officer justification, and execution outcome are permanently cryptographically sealed.
 
 ---
 
-## 6. Quick Start & Setup
+## 7. Cryptographic Tamper-Evident Audit Trail
 
-### Prerequisites
-- Python 3.11, 3.12, or 3.13
-- Node.js 18+ and npm
-- (Optional) Docker & Docker Compose for local FalkorDB container
+Every state change, authentication event, investigation, and approval decision is signed into a **SHA-256 cryptographic hash chain**:
 
-### 1. Clone & Configure Environment
-```bash
-git clone https://github.com/your-org/graphguard-ai.git
-cd "graphguard-ai"
+$$\text{event\_hash}_n = \text{SHA-256}(\text{event\_hash}_{n-1} + \text{canonical\_event\_payload})$$
 
-# Copy environment template
-cp .env.example .env
+```
+┌────────────────────────┐      ┌────────────────────────┐      ┌────────────────────────┐
+│      Record #101       │      │      Record #102       │      │      Record #103       │
+│ Previous: e3b0c44298fc │ ───► │ Previous: 7a8f3b92c1d4 │ ───► │ Previous: 4f1a8c9e2b70 │
+│ Hash:     7a8f3b92c1d4 │      │ Hash:     4f1a8c9e2b70 │      │ Hash:     9c2d1e8a4b3f │
+└────────────────────────┘      └────────────────────────┘      └────────────────────────┘
 ```
 
-Edit `.env` with your preferred credentials:
-```ini
-# FalkorDB Connection (Cloud or Local Docker)
-FALKORDB_HOST=localhost
-FALKORDB_PORT=6379
-FALKORDB_USERNAME=
-FALKORDB_PASSWORD=
-FALKORDB_GRAPH_NAME=graphguard
-
-# Server
-BACKEND_HOST=0.0.0.0
-BACKEND_PORT=8000
-
-# LLM Provider (groq, openai, gemini, or builtin)
-LLM_PROVIDER=groq
-GROQ_API_KEY=your_groq_api_key_here
-LLM_MODEL=qwen/qwen3.8-27b
-```
-
-### 2. Start FalkorDB via Docker Compose (Optional)
-```bash
-docker compose up -d falkordb
-```
-> *Note: If running without Docker or when FalkorDB is offline, GraphGuard AI's active local graph engine automatically runs all Cypher queries and multi-hop traversals.*
-
-### 3. Seed the Graph Database
-```bash
-python data/seed/run_seed.py
-```
-
-### 4. Run Backend Server
-```bash
-cd backend
-python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
-```
-API docs available at: `http://127.0.0.1:8000/docs`
-
-### 5. Run Frontend Application
-```bash
-cd frontend
-npm install
-npm run dev
-```
-Open `http://localhost:5173` in your browser.
+- **One-Click Integrity Verification**: An integrated verification engine inspects the chain from the genesis block to the latest entry, confirming that no historical record has been modified, deleted, or inserted.
+- **Accurate Compliance Wording**: Honestly designated as a **Tamper-Evident Persistent Audit Trail** (no false immutable blockchain claims).
 
 ---
 
-## 7. Automated Testing Suite
+## 8. Role-Based Access Control (RBAC)
 
-GraphGuard AI includes an automated integration test suite covering graph traversals, agent tools, API endpoints, approval gates, and audit trails:
+GraphGuard AI enforces fine-grained authorization server-side using Argon2id password hashing and JWT security tokens:
 
-```bash
-python -m pytest tests/test_backend.py -v
+| Role | Investigations & Search | Graph Exploration | Request Approval | Approve / Reject Action | Persistent Audit Trail | Security Audit Events | User Management |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **ADMIN** | ✅ Allowed | ✅ Allowed | ✅ Allowed | ✅ Allowed | ✅ Allowed | ✅ Allowed | ✅ Allowed |
+| **REVIEWER** | ✅ Allowed | ✅ Allowed | ✅ Allowed | ✅ Allowed | ✅ Allowed | ✅ Allowed | ❌ 403 Forbidden |
+| **ANALYST** | ✅ Allowed | ✅ Allowed | ✅ Allowed | ❌ 403 Forbidden | ❌ Filtered | ❌ 403 Forbidden | ❌ 403 Forbidden |
+| **VIEWER** | 👁️ Read-Only | 👁️ Read-Only | ❌ Read-Only | ❌ 403 Forbidden | 👁️ Read-Only | ❌ 403 Forbidden | ❌ 403 Forbidden |
+
+---
+
+## 9. Suspicious Activity Report (SAR) Dossier Export
+
+Compliance teams can export full investigation dossiers directly from the investigation header:
+
+- **PDF Export**: Generates a formatted, multi-page regulatory briefing document including:
+  - Official case header and timestamp
+  - Transaction profile and execution telemetry
+  - Connected data and FalkorDB graph evidence summary
+  - Explainable risk factor score breakdown table
+  - Human-in-the-Loop authorization audit record and cryptographic hash
+- **JSON Docket Export**: Complete machine-readable data structure for automated upstream ingestion into core banking or AML case management systems.
+
+*Disclaimer: GraphGuard AI is designed to support fraud, AML, and SAR preparation investigation workflows. Exported dossiers support regulatory SAR preparation and do not claim to replace statutory filing portals.*
+
+---
+
+## 10. Automated Test Suite & Quality Verification
+
+The platform is validated against a comprehensive automated integration and security test suite:
+
+```text
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-8.4.2
+collected 26 items
+
+tests/test_backend.py::test_health_endpoint PASSED                       [  3%]
+tests/test_backend.py::test_list_transactions PASSED                     [  7%]
+tests/test_backend.py::test_get_transaction_tx104 PASSED                 [ 11%]
+tests/test_backend.py::test_graph_multi_hop_traversal_tx104 PASSED       [ 15%]
+tests/test_backend.py::test_risk_calculation_tx104 PASSED                [ 19%]
+tests/test_backend.py::test_investigate_api_tx104 PASSED                 [ 23%]
+tests/test_backend.py::test_investigate_api_normal_tx101 PASSED          [ 26%]
+tests/test_backend.py::test_human_approval_and_audit_trail PASSED        [ 30%]
+tests/test_backend.py::test_audit_persistence_across_restart PASSED      [ 34%]
+tests/test_security.py::test_1_login_success PASSED                      [ 38%]
+tests/test_security.py::test_2_invalid_password PASSED                   [ 42%]
+tests/test_security.py::test_3_protected_endpoint_without_auth_returns_401 PASSED [ 46%]
+tests/test_security.py::test_4_analyst_can_investigate PASSED            [ 50%]
+tests/test_security.py::test_5_analyst_cannot_approve_action_returns_403 PASSED [ 53%]
+tests/test_security.py::test_6_reviewer_can_approve PASSED               [ 57%]
+tests/test_security.py::test_7_viewer_cannot_approve_returns_403 PASSED  [ 61%]
+tests/test_security.py::test_8_admin_access PASSED                       [ 65%]
+tests/test_security.py::test_9_logout PASSED                             [ 69%]
+tests/test_security.py::test_10_audit_event_created_after_login PASSED   [ 73%]
+tests/test_security.py::test_11_failed_login_audit_event PASSED          [ 76%]
+tests/test_security.py::test_12_unauthorized_access_audit_event PASSED   [ 80%]
+tests/test_security.py::test_13_action_rejection_recorded_in_audit PASSED [ 84%]
+tests/test_security.py::test_14_audit_integrity_hash_chain PASSED        [ 88%]
+tests/test_security.py::test_15_sar_report_generation PASSED             [ 92%]
+tests/test_security.py::test_16_sar_report_pdf_generation PASSED         [ 96%]
+tests/test_security.py::test_17_admin_password_reset PASSED              [100%]
+
+====================== 26 passed in 44.89s =======================
 ```
 
-### Test Coverage:
-- `test_health_endpoint`: Validates health status and graph topology size.
-- `test_list_transactions`: Confirms synthetic transactions are seeded.
-- `test_get_transaction_tx104`: Validates property schema and account mapping.
-- `test_graph_multi_hop_traversal_tx104`: Asserts 4-hop discovery of Incident `F22`.
-- `test_risk_calculation_tx104`: Verifies dynamic risk score $\ge 75$ (HIGH).
-- `test_investigate_api_tx104`: Tests synchronous API investigation pipeline.
-- `test_investigate_api_normal_tx101`: Validates straight-through low-risk clearance.
-- `test_human_approval_and_audit_trail`: Verifies approval gate, execution, and persistent logging.
+---
+
+## 11. Security & Production Hardening
+
+- **Zero Secret Exposure**: The frontend production bundle is completely scrubbed of API keys, database credentials, and authentication secrets.
+- **Argon2id Password Storage**: User passwords are encrypted with memory-hard Argon2id hashing algorithms.
+- **Server-Side Authorization**: API routes actively enforce role permissions independently of UI visibility.
+- **Strict Rate-Limiting & Generic Errors**: Authentication failures return generic messages (`Invalid email or password.`) to prevent account enumeration.
 
 ---
 
-## 8. Secrets & Security Protection
+## 12. License & Acknowledgements
 
-- **Zero Secret Leakage**: No API keys, passwords, or cloud credentials are bundled into the frontend JavaScript build.
-- **Server-Side Proxy**: All LLM and FalkorDB operations execute exclusively within the Python backend.
-- **Human-in-the-Loop Safeguard**: Autonomous agents are restricted from modifying financial transaction states without explicit human cryptographic / signature confirmation.
-
----
-
-## 9. License
-
-Developed for **GRAPH Hacks 2026**. Licensed under the Apache 2.0 License.
+Developed for **GRAPH Hacks 2026** (Track 01: *Agents That Act on Connected Data*).  
+Built with **FalkorDB**, **FastAPI**, **Groq AI**, **React 19**, and **React Flow**.
